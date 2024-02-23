@@ -1,19 +1,15 @@
 const http = require('http')
+const fs = require('fs')
 
 http.createServer( function(req, res) {
     switch (req.url) {
         case '/':
             res.writeHead(200, {"Content-Type": "text/html"})
-            res.write('<h1>halaman utama</h1>')
-            res.end()
+            fs.createReadStream('./view/index.html').pipe(res)
         break
         case '/profil':
             res.writeHead(200, {"Content-Type": "text/html"})
-            res.write(
-                `<p>Nama: Aji</p>
-                <p>Pekerjaan: Programmer</p>`
-            )
-            res.end()
+            fs.createReadStream('./view/profil.html').pipe(res)
         break
         default:
             res.writeHead(404, {"Content-Type" : "text/html"})
