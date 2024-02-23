@@ -1,3 +1,3 @@
 var angka = 46
-var kata = 'buku komik'
+var kata = 'buku komik 2'
 console.log(kata)
