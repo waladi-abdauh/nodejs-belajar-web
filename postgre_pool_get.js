@@ -10,7 +10,8 @@ const pool = new Pool({
     connectionTimeoutMillis: 2000, //2 detik
 })
 
-pool.query('SELECT * FROM karyawan', function (err, hasil) {
+let id = 3
+pool.query('SELECT * FROM karyawan WHERE id = $1', [id], function (err, hasil) {
     if (err) {
         console.log(err)
     }

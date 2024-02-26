@@ -11,7 +11,10 @@ client.connect()
 
 
 new Promise((resolve, reject) => {
-    let data = client.query('SELECT * FROM karyawan WHERE id = 1')
+    let id = 2
+    let nama = 'Wakid'
+    let jabatan = 'Supervisor'
+    let data = client.query(`SELECT * FROM karyawan WHERE nama = $1 AND jabatan = $2`, [nama, jabatan])
     if (data) {
         resolve(data)
     } else {
