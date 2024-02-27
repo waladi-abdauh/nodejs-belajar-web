@@ -11,7 +11,10 @@ http.createServer( function(req,res) {
     let qstring = querystring.parse(urlparse)
     //buka browser, masukkan url http://localhost:3000/profil?nama=aji
     //lihat hasilnya di console atau terminal
-    console.log( qstring.nama )
+    // console.log( qstring.nama )
+    res.writeHead(200, {"Content-Type": "text/html"})
+    res.write(`<h1>Nama saya adalah ${qstring.nama}</h1>`)
+    res.end()
 }).listen(port)
 
 console.log( 'aplikasi siap, buka http://localhost:' + port )
