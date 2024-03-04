@@ -1,0 +1,31 @@
+<h1>Data Seluruh Karyawan PT. JFD BP Weekday</h1>
+<style>
+    .tabledata-format {
+        padding: 5px;
+    }
+    .text-capitalize {
+        text-transform: capitalize;
+    }
+</style>
+<table border="1">
+    <thead>
+        <tr>
+            <th class="text-capitalize tabledata-format">#</th>
+            <th class="text-capitalize tabledata-format">nama</th>
+            <th class="text-capitalize tabledata-format">jabatan</th>
+            <th class="text-capitalize tabledata-format">tanggal lahir</th>
+            <th class="text-capitalize tabledata-format">departemen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i=0; i < datakaryawan.rowCount; i++) { %>
+            <tr>
+                <td class="tabledata-format"><%= i+1 %></td>
+                <td class="tabledata-format"><%= datakaryawan.rows[i].nama %></td>
+                <td class="tabledata-format"><%= datakaryawan.rows[i].jabatan %></td>
+                <td class="tabledata-format"><%= moment(datakaryawan.rows[i].tanggal_lahir).format('LL') %></td>
+                <td style="background-color: <%= (datakaryawan.rows[i].departemen_nama) ? 'skyblue' : 'red' %>;" class="tabledata-format"><%= datakaryawan.rows[i].departemen_nama %></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

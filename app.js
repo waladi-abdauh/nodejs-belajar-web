@@ -1,13 +1,12 @@
-const express   = require('express')
-const app       = express()
-const port      = 3000
+const express       = require('express')
+const app           = express()
+const port          = 3000
+const c_pengalaman  = require('./controller/c_pengalaman')
+const c_karyawan    = require('./controller/c_karyawan')
 
 
-app.set('view engine', 'ejs')   //setting penggunaan template engine untuk express
-app.set('views', './view-ejs')  //setting penggunaan folder untuk menyimpan file .ejs
-
-// import file controller
-const c_pengalaman = require('./controller/c_pengalaman')
+app.set('view engine', 'ejs')
+app.set('views', './view-ejs')
 
 
 app.get('/', (req,res)=>{
@@ -21,6 +20,7 @@ app.get('/profil', (req,res)=>{
 
 
 app.get('/pengalaman', c_pengalaman.render_pengalaman)
+app.get('/karyawan/all', c_karyawan.all )
 
 
 
