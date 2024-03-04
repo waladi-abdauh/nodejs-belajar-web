@@ -1,0 +1,13 @@
+<h1>Pengalaman Karyawan</h1>
+
+<ul>
+    <li><%= nama %></li>
+    <li><%= jabatan %></li>
+    <li><%= perusahaan %></li>
+    <% if (gaji >= 10000000) { %>
+        <li>gaji anda sudah dua digit</li>
+    <% } else { %>
+        <li>gaji anda satu digit</li>
+    <% } %>
+    <li><%= tunjangan %></li>
+</ul>
