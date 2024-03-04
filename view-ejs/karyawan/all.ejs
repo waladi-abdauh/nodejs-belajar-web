@@ -18,13 +18,13 @@
         </tr>
     </thead>
     <tbody>
-        <% for (let i=0; i < datakaryawan.rowCount; i++) { %>
+        <% for (let i=0; i < datakaryawan.length; i++) { %>
             <tr>
                 <td class="tabledata-format"><%= i+1 %></td>
-                <td class="tabledata-format"><%= datakaryawan.rows[i].nama %></td>
-                <td class="tabledata-format"><%= datakaryawan.rows[i].jabatan %></td>
-                <td class="tabledata-format"><%= moment(datakaryawan.rows[i].tanggal_lahir).format('LL') %></td>
-                <td style="background-color: <%= (datakaryawan.rows[i].departemen_nama) ? 'skyblue' : 'red' %>;" class="tabledata-format"><%= datakaryawan.rows[i].departemen_nama %></td>
+                <td class="tabledata-format"><%= datakaryawan[i].nama %></td>
+                <td class="tabledata-format"><%= datakaryawan[i].jabatan %></td>
+                <td class="tabledata-format"><%= moment(datakaryawan[i].tanggal_lahir).format('LL') %></td>
+                <td style="background-color: <%= (datakaryawan[i].departemen_nama) ? 'skyblue' : 'red' %>;" class="tabledata-format"><%= datakaryawan[i].departemen_nama %></td>
             </tr>
         <% } %>
     </tbody>
