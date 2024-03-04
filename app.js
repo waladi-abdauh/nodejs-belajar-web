@@ -20,19 +20,6 @@ app.get('/profil', (req,res)=>{
 })
 
 
-// gaya penulisan 1: route + tampilkan view + kirim data ke view
-// app.get('/pengalaman', function(req,res) {
-//     res.render('daftar-pengalaman', {
-//         nama: 'Aji Kowiyu',
-//         jabatan: 'Sr. Developer & Analyst',
-//         perusahaan: 'Agung Podomoro Group',
-//         gaji: 12000000,
-//         tunjangan: 'BPJS, Asuransi, Parkir',
-//     })
-// })
-
-
-// gaya penulisan 2: callbacknya dikeluarkan
 app.get('/pengalaman', c_pengalaman.render_pengalaman)
 
 
