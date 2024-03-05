@@ -1,6 +1,5 @@
 const moment        = require('moment')
 const m_karyawan    = require('../model/m_karyawan')
-const db            = require('../config/database').db //koneksi database
 
 moment.locale('id')
 
