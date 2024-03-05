@@ -1,3 +1,6 @@
+const moment        = require('moment')
+const m_karyawan    = require('../model/m_karyawan')
+const db            = require('../config/database').db //koneksi database
 const moment    = require('moment')
 const Pool      = require('pg').Pool
 
@@ -15,24 +18,25 @@ const db = new Pool({
 moment.locale('id')
 
 
-function all(req,res) {
-    db.query(`SELECT
-    karyawan.*, departemen.nama as departemen_nama
-    FROM karyawan
-    LEFT JOIN departemen ON departemen.id = karyawan.departemen
-    ORDER BY nama ASC`, function(error,hasil) {
-        if (error) {
-            throw error
-        } else {
-            res.render('karyawan/all', {
-                datakaryawan: hasil,
-                moment: moment,
-            })
-        }
+async function all(req,res) {
+    res.render('karyawan/all', {
+        datakaryawan: await m_karyawan.get_all(),
+        moment: moment
+    })
+}
+
+
+async function detail(req,res) {
+    let id_kry = req.params.id_karyawan
+
+    res.render('karyawan/detail', {
+        data_karyawan: await m_karyawan.get_one(id_kry),
+        moment: moment,
     })
 }
 
 
 module.exports = {
-    all
+    all,
+    detail,
 }

@@ -1,0 +1,9 @@
+<% if (data_karyawan.length > 0) { %>
+    <h1>detail karyawan</h1>
+    <li style="text-transform: capitalize;"><b>nama</b>: <%= data_karyawan[0].nama %></li>
+    <li style="text-transform: capitalize;"><b>jabatan</b>: <%= data_karyawan[0].jabatan %></li>
+    <li style="text-transform: capitalize;"><b>tanggal lahir</b>: <%= moment(data_karyawan[0].tanggal_lahir).format('LL') %></li>
+    <li style="text-transform: capitalize;"><b>departemen</b>: <%= data_karyawan[0].departemen_nama %></li>
+<% } else { %>
+    <h1>Data karyawan tidak ditemukan</h1>
+<% } %>
