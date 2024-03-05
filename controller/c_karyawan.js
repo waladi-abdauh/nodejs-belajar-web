@@ -22,7 +22,13 @@ async function detail(req,res) {
 }
 
 
+function create(req,res) {
+    res.render('karyawan/form-tambah')
+}
+
+
 module.exports = {
     all,
     detail,
+    create,
 }
