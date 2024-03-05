@@ -1,7 +1,6 @@
 const moment        = require('moment')
 const m_karyawan    = require('../model/m_karyawan')
 const db            = require('../config/database').db //koneksi database
-const moment    = require('moment')
 const Pool      = require('pg').Pool
 
 const db = new Pool({
