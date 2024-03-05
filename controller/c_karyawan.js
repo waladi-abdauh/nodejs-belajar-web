@@ -15,24 +15,9 @@ async function all(req,res) {
 
 async function detail(req,res) {
     let id_kry = req.params.id_karyawan
-    let data_dari_sql;
-
-    try {
-        data_dari_sql = await db.query(`
-            SELECT
-                karyawan.*, departemen.nama as departemen_nama
-            FROM karyawan
-            LEFT JOIN departemen ON departemen.id = karyawan.departemen
-            WHERE karyawan.id = $1
-            ORDER BY nama ASC`,
-            [id_kry]
-        )
-    } catch (error) {
-        console.log(error)
-    }
 
     res.render('karyawan/detail', {
-        data_karyawan: data_dari_sql.rows,
+        data_karyawan: await m_karyawan.get_one(id_kry),
         moment: moment,
     })
 }
@@ -40,5 +25,5 @@ async function detail(req,res) {
 
 module.exports = {
     all,
-    detail
+    detail,
 }
