@@ -15,9 +15,11 @@
 
     <label>Departemen</label>
     <select>
-        <option value="mg">mangga</option>
-        <option value="jb">jambu</option>
-        <option value="ap" selected>apel</option>
+        <option value="" selected>--pilih departemen--</option>
+        <% for( let i=0; i < departemen.length; i++ ) { %>
+            <option value="<%= departemen[i].id %>"><%= departemen[i].nama %></option>
+        <% } %>
     </select>
     <br><br>
+    <button type="submit">simpan</button>
 </form>
