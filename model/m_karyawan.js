@@ -1,5 +1,7 @@
 const db = require('../config/database').db
 
+
+
 async function get_all() {
     try {
         let hasil = await db.query(
@@ -35,7 +37,24 @@ async function get_one(id_kry) {
 }
 
 
+
+async function add_new(data) {
+    try {
+        let hasil = await db.query(
+            `INSERT INTO karyawan (nama, jabatan, tanggal_lahir, departemen)
+            VALUES ($1, $2, $3, $4);`,
+            [data.nama, data.jabatan, data.tgl_lahir, data.dept]
+        )
+        return hasil
+    } catch (error) {
+        return error
+    }
+}
+
+
+
 module.exports = {
     get_all,
     get_one,
+    add_new,
 }

@@ -7,6 +7,9 @@ const c_beranda     = require('./controller/c_beranda')
 
 
 
+app.use(express.urlencoded({extended: false}))
+
+
 app.set('view engine', 'ejs')
 app.set('views', './view-ejs')
 
@@ -17,6 +20,7 @@ app.get('/pengalaman', c_pengalaman.render_pengalaman)
 app.get('/karyawan/all', c_karyawan.all )
 app.get('/karyawan/detail/:id_karyawan', c_karyawan.detail)
 app.get('/karyawan/create', c_karyawan.create)
+app.post('/karyawan/insert', c_karyawan.insert)
 
 
 

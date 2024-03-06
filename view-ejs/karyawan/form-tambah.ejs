@@ -1,21 +1,21 @@
 <h1>Form input karyawan baru</h1>
 
-<form action="#" method="post">
+<form action="/karyawan/insert" method="post">
     <label>Nama Lengkap Karyawan</label>
-    <input type="text">
+    <input type="text" name="form_nama" required maxlength="255">
     <br><br>
 
     <label>Jabatan</label>
-    <input type="text">
+    <input type="text" name="form_jabatan" required maxlength="255">
     <br><br>
 
     <label>Tanggal Lahir</label>
-    <input type="date">
+    <input type="date" name="form_tanggal_lahir" required>
     <br><br>
 
     <label>Departemen</label>
-    <select>
-        <option value="" selected>--pilih departemen--</option>
+    <select name="form_departemen" required>
+        <option value="8" selected>--pilih departemen--</option>
         <% for( let i=0; i < departemen.length; i++ ) { %>
             <option value="<%= departemen[i].id %>"><%= departemen[i].nama %></option>
         <% } %>
