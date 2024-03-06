@@ -21,7 +21,7 @@
             <th class="text-capitalize tabledata-format">#</th>
             <th class="text-capitalize tabledata-format">nama</th>
             <th class="text-capitalize tabledata-format">departemen</th>
-            <th class="text-capitalize tabledata-format">action</th>
+            <th class="text-capitalize tabledata-format" colspan="2">action</th>
         </tr>
     </thead>
     <tbody>
@@ -31,9 +31,14 @@
                 <td class="tabledata-format"><%= datakaryawan[i].nama %></td>
                 <td style="background-color: <%= (datakaryawan[i].departemen_nama) ? '' : 'red' %>;" class="tabledata-format"><%= datakaryawan[i].departemen_nama %></td>
                 <td class="tabledata-format">
-                    <a href="/karyawan/detail/<%= datakaryawan[i].id %>">
+                    <a href="/karyawan/detail/<%= datakaryawan[i].id %>" style="text-decoration: none;">
                         <button>detail</button>
                     </a>
+                </td>
+                <td class="tabledata-format">
+                    <form action="/karyawan/delete/<%= datakaryawan[i].id %>" method="post" style="margin:0; padding:0">
+                        <button type="submit" onclick="return confirm('apakah anda yakin ingin hapus <%= datakaryawan[i].nama %>?')">hapus</button>
+                    </form>
                 </td>
             </tr>
         <% } %>

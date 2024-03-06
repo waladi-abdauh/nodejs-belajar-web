@@ -55,9 +55,24 @@ async function insert(req,res) {
 
 
 
+async function remove(req,res) {
+    let id_kry = req.params.id_karyawan
+    try {
+        let hapus = await m_karyawan.remove(id_kry)
+        if (hapus.command == 'DELETE' && hapus.rowCount == 1) {
+            res.redirect('/karyawan/all?notif=berhasil hapus karyawan')
+        }
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+
+
 module.exports = {
     all,
     detail,
     create,
     insert,
+    remove,
 }

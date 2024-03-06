@@ -21,6 +21,7 @@ app.get('/karyawan/all', c_karyawan.all )
 app.get('/karyawan/detail/:id_karyawan', c_karyawan.detail)
 app.get('/karyawan/create', c_karyawan.create)
 app.post('/karyawan/insert', c_karyawan.insert)
+app.post('/karyawan/delete/:id_karyawan', c_karyawan.remove)
 
 
 

@@ -53,8 +53,23 @@ async function add_new(data) {
 
 
 
+async function remove(id_kry) {
+    try {
+        let hasil = await db.query(
+            `DELETE FROM karyawan WHERE id = $1;`,
+            [id_kry]
+        )
+        return hasil
+    } catch (error) {
+        return error
+    }
+}
+
+
+
 module.exports = {
     get_all,
     get_one,
     add_new,
+    remove,
 }
