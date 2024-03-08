@@ -1,0 +1,28 @@
+<h1>Form edit karyawan</h1>
+
+<form action="/karyawan/update/<%= karyawan[0].id %>" method="post">
+    <label>Nama Lengkap Karyawan</label>
+    <input type="text" name="form_nama" value="<%= karyawan[0].nama %>" required maxlength="255">
+    <br><br>
+
+    <label>Jabatan</label>
+    <input type="text" name="form_jabatan" value="<%= karyawan[0].jabatan %>" required maxlength="255">
+    <br><br>
+
+    <label>Tanggal Lahir</label>
+    <input type="date" name="form_tanggal_lahir" value="<%= moment(karyawan[0].tanggal_lahir).format('YYYY-MM-DD') %>" required>
+    <br><br>
+
+    <label>Departemen</label>
+    <select name="form_departemen" required>
+        <option value="" >--pilih departemen--</option>
+        <% for( let i=0; i < departemen.length; i++ ) { %>
+            <% let selected = (departemen[i].id == karyawan[0].departemen) ? 'selected' : '' %>
+            <option <%= selected %> value="<%= departemen[i].id %>">
+                <%= departemen[i].nama %>
+            </option>
+        <% } %>
+    </select>
+    <br><br>
+    <button type="submit">simpan perubahan</button>
+</form>

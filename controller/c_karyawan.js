@@ -69,10 +69,23 @@ async function remove(req,res) {
 
 
 
+async function edit(req,res) {
+    let id_kry = req.params.id_karyawan
+
+    res.render('karyawan/form-edit', {
+        departemen: await m_departemen.get_all(),
+        karyawan: await m_karyawan.get_one(id_kry),
+        moment: moment,
+    })
+}
+
+
+
 module.exports = {
     all,
     detail,
     create,
     insert,
     remove,
+    edit,
 }
