@@ -21,7 +21,7 @@
             <th class="text-capitalize tabledata-format">#</th>
             <th class="text-capitalize tabledata-format">nama</th>
             <th class="text-capitalize tabledata-format">departemen</th>
-            <th class="text-capitalize tabledata-format" colspan="2">action</th>
+            <th class="text-capitalize tabledata-format" colspan="3">action</th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +39,11 @@
                     <form action="/karyawan/delete/<%= datakaryawan[i].id %>" method="post" style="margin:0; padding:0">
                         <button type="submit" onclick="return confirm('apakah anda yakin ingin hapus <%= datakaryawan[i].nama %>?')">hapus</button>
                     </form>
+                </td>
+                <td class="tabledata-format">
+                    <a href="/karyawan/edit/<%= datakaryawan[i].id %>" style="text-decoration: none;">
+                        <button>edit</button>
+                    </a>
                 </td>
             </tr>
         <% } %>
