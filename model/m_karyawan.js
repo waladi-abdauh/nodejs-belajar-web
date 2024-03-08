@@ -67,9 +67,26 @@ async function remove(id_kry) {
 
 
 
+async function update_kry(dataform, id_kry) {
+    try {
+        let hasil = await db.query(
+            `UPDATE karyawan
+            SET nama = $1, jabatan = $2, tanggal_lahir = $3, departemen = $4
+            WHERE id = $5;`,
+            [dataform.nama, dataform.jabatan, dataform.tgl_lahir, dataform.dept, id_kry]
+        )
+        return hasil
+    } catch (error) {
+        return error
+    }
+}
+
+
+
 module.exports = {
     get_all,
     get_one,
     add_new,
     remove,
+    update_kry,
 }

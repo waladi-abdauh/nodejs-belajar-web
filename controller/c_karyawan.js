@@ -81,6 +81,28 @@ async function edit(req,res) {
 
 
 
+async function update(req,res) {
+    let id_kry = req.params.id_karyawan
+    let dataform = {
+        nama        : req.body.form_nama,
+        jabatan     : req.body.form_jabatan,
+        tgl_lahir   : req.body.form_tanggal_lahir,
+        dept        : req.body.form_departemen,
+    }
+    try {
+        let update_table = await m_karyawan.update_kry(dataform, id_kry)
+        if (update_table.command == 'UPDATE' && update_table.rowCount == 1) {
+            res.redirect('/karyawan/all?notif=berhasil update karyawan')
+        } else {
+            res.redirect(`/karyawan/all?notif=berhasil update ${update_table.rowCount} karyawan`)
+        }
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+
+
 module.exports = {
     all,
     detail,
@@ -88,4 +110,5 @@ module.exports = {
     insert,
     remove,
     edit,
+    update,
 }
