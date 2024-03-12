@@ -8,6 +8,12 @@
 </style>
 
 <h1>Data Seluruh Karyawan PT. JFD BP Weekday</h1>
+<%= notifikasi %>
+<br><br>
+<a href="/karyawan/create">
+    <button>+ karyawan baru</button>
+</a>
+<br><br>
 
 <table border="1">
     <thead>
@@ -15,7 +21,7 @@
             <th class="text-capitalize tabledata-format">#</th>
             <th class="text-capitalize tabledata-format">nama</th>
             <th class="text-capitalize tabledata-format">departemen</th>
-            <th class="text-capitalize tabledata-format">action</th>
+            <th class="text-capitalize tabledata-format" colspan="3">action</th>
         </tr>
     </thead>
     <tbody>
@@ -25,8 +31,18 @@
                 <td class="tabledata-format"><%= datakaryawan[i].nama %></td>
                 <td style="background-color: <%= (datakaryawan[i].departemen_nama) ? '' : 'red' %>;" class="tabledata-format"><%= datakaryawan[i].departemen_nama %></td>
                 <td class="tabledata-format">
-                    <a href="/karyawan/detail/<%= datakaryawan[i].id %>">
+                    <a href="/karyawan/detail/<%= datakaryawan[i].id %>" style="text-decoration: none;">
                         <button>detail</button>
+                    </a>
+                </td>
+                <td class="tabledata-format">
+                    <form action="/karyawan/delete/<%= datakaryawan[i].id %>" method="post" style="margin:0; padding:0">
+                        <button type="submit" onclick="return confirm('apakah anda yakin ingin hapus <%= datakaryawan[i].nama %>?')">hapus</button>
+                    </form>
+                </td>
+                <td class="tabledata-format">
+                    <a href="/karyawan/edit/<%= datakaryawan[i].id %>" style="text-decoration: none;">
+                        <button>edit</button>
                     </a>
                 </td>
             </tr>
